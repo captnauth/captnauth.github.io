@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="第一会所亚无原创 - 亚无原创艺术社区，提供第一会所风格的高清原创艺术作品展示、创作教程与艺术交流平台。">
+    <meta name="keywords" content="第一会所, 亚无原创, 原创艺术, 艺术社区, 亚无, 高清图片, 创作展示">
+    <title>第一会所亚无原创 - 原创艺术作品展示与艺术社区</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #c9a962;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .header-actions .btn {
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            color: #fff;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #ccc;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .search-bar {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .search-bar button {
+            padding: 0 1.5rem;
+            background: var(--accent-color);
+            color: #fff;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Category Section */
+        .categories {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            text-align: center;
+            padding: 1.5rem;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .category-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Gallery Grid */
+        .gallery {
+            padding: 3rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .art-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .art-card:hover {
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .art-image-wrapper {
+            position: relative;
+            padding-top: 133%; /* 3:4 Aspect Ratio */
+            overflow: hidden;
+        }
+
+        .art-image-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .art-card:hover .art-image-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .art-info {
+            padding: 1rem;
+        }
+
+        .art-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .art-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .artist-name {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .like-count {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: #fff;
+            padding: 4rem 0;
+            border-top: 1px solid #eee;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .feature-item h3 {
+            margin: 1rem 0 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .feature-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand p {
+            color: #999;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+
+        .footer-links h4 {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                margin: 1rem auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-color);">
+                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                    <path d="M2 2l7.586 7.586"></path>
+                    <circle cx="11" cy="11" r="2"></circle>
+                </svg>
+                第一会所<span>亚无原创</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">作品展示</a></li>
+                    <li><a href="#">艺术家</a></li>
+                    <li><a href="#">社区论坛</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">注册</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>探索亚无原创艺术</h1>
+                <p>汇聚第一会所风格的优质原创艺术作品，为创作者提供灵感，为欣赏者提供视觉盛宴。</p>
+                <div class="search-bar">
+                    <input type="text" placeholder="搜索作品、艺术家或标签...">
+                    <button>搜索</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="container categories">
+            <h2 class="section-title">浏览分类</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-icon">🎨</div>
+                    <div class="category-title">插画作品</div>
+                    <div class="category-desc">精选原创插画，涵盖多种风格与题材</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">✏️</div>
+                    <div class="category-title">同人创作</div>
+                    <div class="category-desc">基于热门IP的同人二创与改编作品</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">📸</div>
+                    <div class="category-title">摄影图集</div>
+                    <div class="category-desc">光影交错的摄影艺术，捕捉瞬间之美</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🎬</div>
+                    <div class="category-title">影视剧照</div>
+                    <div class="category-desc">电影与电视剧的高清剧照与幕后</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Gallery -->
+        <section class="container gallery">
+            <h2 class="section-title">热门推荐</h2>
+            <div class="gallery-grid">
+                <!-- Art Card 1 -->
+                <article class="art-card">
+                    <div class="art-image-wrapper">
+                        <img src="https://picsum.photos/seed/art1/400/533" alt="原创艺术作品展示">
+                    </div>
+                    <div class="art-info">
+                        <h3 class="art-title">夜色微澜 - 原创油画风格</h3>
+                        <div class="art-meta">
+                            <span class="artist-name">作者：亚无</span>
+                            <span class="like-count">❤ 1.2k</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Art Card 2 -->
+                <article class="art-card">
+                    <div class="art-image-wrapper">
+                        <img src="https://picsum.photos/seed/art2/400/533" alt="原创艺术作品展示">
+                    </div>
+                    <div class="art-info">
+                        <h3 class="art-title">赛博朋克 2077 风格概念图</h3>
+                        <div class="art-meta">
+                            <span class="artist-name">作者：原创者A</span>
+                            <span class="like-count">❤ 856</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Art Card 3 -->
+                <article class="art-card">
+                    <div class="art-image-wrapper">
+                        <img src="https://picsum.photos/seed/art3/400/533" alt="原创艺术作品展示">
+                    </div>
+                    <div class="art-info">
+                        <h3 class="art-title">古风人物设定 - 江南烟雨</h3>
+                        <div class="art-meta">
+                            <span class="artist-name">作者：墨客</span>
+                            <span class="like-count">❤ 2.1k</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Art Card 4 -->
+                <article class="art-card">
+                    <div class="art-image-wrapper">
+                        <img src="https://picsum.photos/seed/art4/400/533" alt="原创艺术作品展示">
+                    </div>
+                    <div class="art-info">
+                        <h3 class="art-title">现代都市摄影系列</h3>
+                        <div class="art-meta">
+                            <span class="artist-name">作者：光影猎人</span>
+                            <span class="like-count">❤ 934</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="btn btn-outline">加载更多作品</button>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div style="font-size: 2rem;">🛡️</div>
+                        <h3>严格审核机制</h3>
+                        <p>所有作品均经过人工审核，确保内容健康、原创、高质量。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div style="font-size: 2rem;">🤝</div>
+                        <h3>艺术家社区</h3>
+                        <p>连接创作者与爱好者，提供良好的交流互动平台。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div style="font-size: 2rem;">💎</div>
+                        <h3>高清原图下载</h3>
+                        <p>支持高清大图浏览与下载，满足专业需求。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo" style="color: #fff;">
+                        第一会所<span>亚无原创</span>
+                    </div>
+                    <p>致力于打造国内领先的原创艺术展示平台，汇聚全网优质创作者，分享视觉美学。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">加入创作者</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">帮助中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">Bilibili</a></li>
+                        <li><a href="#">小红书</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 第一会所亚无原创 版权所有 | 本站内容仅供交流学习，请勿用于商业用途。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                              </html>
