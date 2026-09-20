@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>东京图书馆-东京公共图书馆资源与阅读指南</title>
+    <meta name="description" content="东京图书馆官方指南，提供东京都立图书馆、国立国会图书馆及各区立图书馆的开放时间、预约方式、馆藏特色及借阅指南。">
+    <meta name="keywords" content="东京图书馆, 东京国立国会图书馆, 东京都立图书馆, 东京图书馆借阅, 东京读书会">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #c0392b;
+            --bg-color: #f4f6f7;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+            --shadow-hover: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            fill: #fff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .search-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .search-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item strong {
+            display: block;
+            font-size: 1.8rem;
+            color: var(--accent-color);
+        }
+
+        .stat-item span {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            padding-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Filter Tabs */
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border: 1px solid #ddd;
+            background: var(--card-bg);
+            border-radius: 20px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* Library Grid */
+        .library-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-img {
+            height: 180px;
+            background-color: #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .card-address {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .card-info {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1a252f;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .guide-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .guide-item ul {
+            list-style-position: inside;
+            color: var(--text-secondary);
+        }
+
+        .guide-item li {
+            margin-bottom: 5px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            background: white;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            background: #fafafa;
+            list-style: none;
+            position: relative;
+            padding-right: 40px;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        .faq-content {
+            padding: 20px;
+            border-top: 1px solid #eee;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #ecf0f1;
+            padding: 40px 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #95a5a6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero-stats { gap: 20px; }
+            .header-inner { flex-direction: column; gap: 10px; }
+            nav ul { gap: 10px; font-size: 0.9rem; }
+            .search-btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/>
+                </svg>
+                东京图书馆
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#library-list">馆藏查询</a></li>
+                    <li><a href="#guides">借阅指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <button class="search-btn">检索馆藏</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>探索东京的阅读空间</h1>
+            <p>从拥有百年历史的国立国会图书馆到充满现代设计感的区立图书馆，在东京的每一个角落都能找到属于您的静谧阅读时光。</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <strong>130+</strong>
+                    <span>家公共图书馆</span>
+                </div>
+                <div class="stat-item">
+                    <strong>24h</strong>
+                    <span>24小时开放点</span>
+                </div>
+                <div class="stat-item">
+                    <strong>Free</strong>
+                    <span>免费入馆与借阅</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Filter Tabs -->
+        <div class="filters" id="library-list">
+            <button class="filter-btn active">全部</button>
+            <button class="filter-btn">国立国会图书馆</button>
+            <button class="filter-btn">东京都立</button>
+            <button class="filter-btn">区立</button>
+            <button class="filter-btn">大学图书馆</button>
+        </div>
+
+        <!-- Library Grid -->
+        <h2 class="section-title">热门图书馆推荐</h2>
+        <div class="library-grid">
+            <!-- Card 1 -->
+            <article class="card">
+                <div class="card-img">
+                    <span class="card-badge">24小时开放</span>
+                    <img src="https://picsum.photos/seed/lib1/400/250" alt="东京都立日比谷图书馆外观">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">东京都立日比谷图书馆</h3>
+                    <div class="card-address">
+                        <span>📍</span> 3-7-3 Kachidoki, Chuo-ku
+                    </div>
+                    <p class="card-info">
+                        东京最具标志性的图书馆之一，拥有独特的双层结构设计。主要提供成人书籍及多媒体资源，是都市阅读爱好者的首选。
+                    </p>
+                    <div class="card-footer">
+                        <span>开放: 10:00-20:00</span>
+                        <a href="#" class="btn btn-primary">详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="card">
+                <div class="card-img">
+                    <span class="card-badge">国立</span>
+                    <img src="https://picsum.photos/seed/lib2/400/250" alt="国会图书馆本馆">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">国立国会图书馆本馆</h3>
+                    <div class="card-address">
+                        <span>📍</span> 1-10-1 Kasumigaseki, Chiyoda-ku
+                    </div>
+                    <p class="card-info">
+                        日本最大的图书馆，收藏了超过400万册藏书。提供丰富的日语及外文资料，需持护照或借阅证入馆。
+                    </p>
+                    <div class="card-footer">
+                        <span>开放: 09:30-17:00</span>
+                        <a href="#" class="btn btn-primary">详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="card">
+                <div class="card-img">
+                    <span class="card-badge">24小时开放</span>
+                    <img src="https://picsum.photos/seed/lib3/400/250" alt="三鹰市立图书馆">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">三鹰市立图书馆</h3>
+                    <div class="card-address">
+                        <span>📍</span> 1-1-1 Nishi-machi, Mitaka-shi
+                    </div>
+                    <p class="card-info">
+                        安静舒适的环境，适合深度阅读。馆藏以文学类书籍为主，馆内设有专门的儿童阅读区和研讨室。
+                    </p>
+                    <div class="card-footer">
+                        <span>开放: 10:00-20:00</span>
+                        <a href="#" class="btn btn-primary">详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="card">
+                <div class="card-img">
+                    <img src="https://picsum.photos/seed/lib4/400/250" alt="青山图书馆">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">青山图书馆</h3>
+                    <div class="card-address">
+                        <span>📍</span> 4-3-13 Jingumae, Shibuya-ku
+                    </div>
+                    <p class="card-info">
+                        位于原宿时尚中心，设计现代简约。不仅是藏书处，更是文化交流的空间，经常举办读书会和展览。
+                    </p>
+                    <div class="card-footer">
+                        <span>开放: 10:00-20:00</span>
+                        <a href="#" class="btn btn-primary">详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="card">
+                <div class="card-img">
+                    <span class="card-badge">24小时开放</span>
+                    <img src="https://picsum.photos/seed/lib5/400/250" alt="代代木公园图书馆">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">代代木公园图书馆</h3>
+                    <div class="card-address">
+                        <span>📍</span> 2-1-1 Yoyogi, Shibuya-ku
+                    </div>
+                    <p class="card-info">
+                        坐落于代代木公园内，环境优美。提供丰富的休闲读物和杂志，是市民休闲阅读的好去处。
+                    </p>
+                    <div class="card-footer">
+                        <span>开放: 10:00-20:00</span>
+                        <a href="#" class="btn btn-primary">详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article class="card">
+                <div class="card-img">
+                    <img src="https://picsum.photos/seed/lib6/400/250" alt="丰洲图书馆">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">丰洲图书馆</h3>
+                    <div class="card-address">
+                        <span>📍</span> 1-1-1 Toyosu, Koto-ku
+                    </div>
+                    <p class="card-info">
+                        位于丰洲市场的对岸，拥有巨大的落地窗。设计风格极具未来感，提供丰富的建筑与艺术类书籍。
+                    </p>
+                    <div class="card-footer">
+                        <span>开放: 10:00-20:00</span>
+                        <a href="#" class="btn btn-primary">详情</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- Guide Section -->
+        <section class="guide-section" id="guides">
+            <h2 class="section-title">东京图书馆使用指南</h2>
+            <div class="guide-grid">
+                <div class="guide-item">
+                    <h3>📖 借阅资格</h3>
+                    <p>在东京的公共图书馆借阅，通常需要办理“图书馆卡”。持有在留资格为“永住者”、“定住者”、“日本人”或“永住者的配偶者”的外国人，以及持有“外国人登録証明書”的短期滞在者（需符合特定条件）均可办理。部分区立图书馆接受外国人护照直接借阅（需押金）。</p>
+                </div>
+                <div class="guide-item">
+                    <h3>🎫 预约入馆</h3>
+                    <p>对于热门的国立国会图书馆或大型都立图书馆，建议通过官方网站提前预约入馆名额，特别是周末和节假日，以避免排队。</p>
+                </div>
+                <div class="guide-item">
+                    <h3>📱 数字资源</h3>
+                    <p>东京的图书馆大多提供电子书和数据库服务。通过图书馆官网登录个人账号，即可免费下载电子书、查阅学术期刊或观看视频资料。</p>
+                </div>
+                <div class="guide-item">
+                    <h3>🎧 馆内规则</h3>
+                    <p>入馆请勿穿着拖鞋、背心或露出肩膀的衣物。手机请调至静音模式。部分区域（如研讨室）需提前预约，严禁饮食。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" id="faq">
+            <h2 class="section-title">常见问题 (FAQ)</h2>
+            
+            <details>
+                <summary>东京图书馆的开放时间是怎样的？</summary>
+                <div class="faq-content">
+                    大多数区立图书馆的开放时间为周一至周五的10:00至20:00，周末为10:00至17:00。但如日比谷图书馆、代代木公园图书馆等设有24小时开放区。具体时间请以各馆官网公告为准。
+                </div>
+            </details>
+
+            <details>
+                <summary>可以在东京图书馆借阅外文书吗？</summary>
+                <div class="faq-content">
+                    可以。国立国会图书馆拥有世界级的收藏，几乎所有主要语种的外文书籍均可借阅。区立图书馆通常也设有外文专区，提供英语、中文（简繁体）等书籍。
+                </div>
+            </details>
+
+            <details>
+                <summary>如何办理图书馆借阅卡？</summary>
+                <div class="faq-content">
+                    通常需要携带护照、在留卡（外国人）或住民票（日本人），前往目标图书馆的“服务窗口”填写申请表。办理成功后即可领取借阅卡。
+                </div>
+            </details>
+
+            <details>
+                <summary>图书馆可以带宠物进去吗？</summary>
+                <div class="faq-content">
+                    除了导盲犬等服务性动物外，普通宠物通常禁止入馆。请务必遵守馆内的安静规定，保持环境整洁。
+                </div>
+            </details>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于东京图书馆</h4>
+                    <p style="color: #bdc3c7; font-size: 0.9rem;">
+                        本站致力于为访日游客及在日居民提供东京各主要图书馆的实用信息与阅读指南，帮助您在繁忙的都市中找到心灵的栖息地。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">国立国会图书馆官网</a></li>
+                        <li><a href="#">东京都图书馆协会</a></li>
+                        <li><a href="#">区立图书馆名录</a></li>
+                        <li><a href="#">数字资源检索</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>info@tokyo-library-guide.jp</li>
+                        <li>东京都千代田区千代田1-10-1</li>
+                        <li>服务时间: 9:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 东京图书馆指南. All rights reserved. 本网站为信息展示页面，不隶属于任何特定图书馆。
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的标签切换交互
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const cards = document.querySelectorAll('.card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // 移除所有激活状态
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // 激活当前按钮
+                    btn.classList.add('active');
+
+                    const filter = btn.textContent;
+
+                    // 简单的筛选逻辑演示
+                    cards.forEach(card => {
+                        if (filter === '全部' || card.textContent.includes(filter)) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // 搜索按钮模拟
+            const searchBtn = document.querySelector('.search-btn');
+            searchBtn.addEventListener('click', () => {
+                alert('正在跳转至东京都立图书馆联合目录检索页面...');
+            });
+        });
+    </script>
+</body>
+</html>
