@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="风月大陆txt下载 - 官方正版授权小说阅读平台，提供《风月大陆》TXT全集免费下载、在线阅读、章节试读及正版阅读服务，支持手机阅读与多端同步。">
+    <meta name="keywords" content="风月大陆txt下载, 风月大陆小说, 风月大陆在线阅读, 风月大陆TXT, 网络小说, 玄幻小说">
+    <title>风月大陆txt下载-正版小说阅读与TXT全集资源</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #7b2cbf;
+            --primary-light: #9d4edd;
+            --accent-color: #ff006e;
+            --text-main: #1a1a2e;
+            --text-secondary: #535c68;
+            --bg-body: #f8f9fa;
+            --bg-card: #ffffff;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            box-shadow: 0 4px 15px rgba(123, 44, 191, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(123, 44, 191, 0.6);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -24px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 3px 3px 0 0;
+        }
+
+        .search-bar {
+            display: flex;
+            background: #f1f2f6;
+            border-radius: 20px;
+            padding: 5px 15px;
+            width: 300px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 100%;
+            padding: 5px;
+        }
+
+        .search-bar button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0;
+            background: linear-gradient(180deg, #f8f9fa 0%, #eef2f3 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .tags {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .tag {
+            background: rgba(123, 44, 191, 0.1);
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Chapter List */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-main);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .chapter-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .chapter-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 140px;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary-light);
+        }
+
+        .chapter-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .chapter-meta {
+            font-size: 12px;
+            color: #999;
+            margin-top: auto;
+        }
+
+        /* Download Section */
+        .download-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        .download-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .download-box h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .download-box p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-white:hover {
+            background: #f0f0f0;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(123, 44, 191, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .feature-item p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-main);
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #f9f9f9;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-secondary);
+            font-size: 15px;
+            display: none;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: #a0a0a0;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                <span>阅书阁</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">分类</a></li>
+                    <li><a href="#">排行榜</a></li>
+                    <li><a href="#">书架</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索书名、作者...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <h1>探索奇幻世界 <br><span class="highlight">《风月大陆》</span> 完整TXT下载</h1>
+                    <p>穿越异界，踏足风月大陆，这里有强者为尊的法则，也有错综复杂的情感纠葛。现已更新至最新章节，支持手机、电脑多端阅读。</p>
+                    <div class="hero-actions">
+                        <a href="#download-area" class="btn btn-primary">立即下载TXT</a>
+                        <a href="#read-online" class="btn btn-outline">在线阅读</a>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">玄幻</span>
+                        <span class="tag">奇幻</span>
+                        <span class="tag">热血</span>
+                        <span class="tag">完结</span>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://picsum.photos/seed/magic/600/400" alt="风月大陆小说封面">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="section">
+            <div class="container">
+                <div class="features">
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <h3>极速下载</h3>
+                        <p>提供高速服务器，秒速响应您的《风月大陆》TXT下载请求，无需排队等待。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>安全无毒</h3>
+                        <p>所有文件经过人工与机器双重扫描，确保下载的TXT文件无病毒、无广告插件。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📱</div>
+                        <h3>全端同步</h3>
+                        <p>下载后可在手机、平板、电脑任意阅读器中打开，支持断点续传与书签保存。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Chapters -->
+        <section class="section" style="background-color: white;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">最新章节</h2>
+                    <a href="#" style="color: var(--primary-color); font-weight: 500;">查看全部 &rarr;</a>
+                </div>
+                <div class="chapter-list">
+                    <article class="chapter-card">
+                        <h3 class="chapter-title">第十二章：秘境开启的征兆</h3>
+                        <div class="chapter-meta">更新于：2023-10-24</div>
+                    </article>
+                    <article class="chapter-card">
+                        <h3 class="chapter-title">第十一章：暗流涌动</h3>
+                        <div class="chapter-meta">更新于：2023-10-22</div>
+                    </article>
+                    <article class="chapter-card">
+                        <h3 class="chapter-title">第十章：初露锋芒</h3>
+                        <div class="chapter-meta">更新于：2023-10-20</div>
+                    </article>
+                    <article class="chapter-card">
+                        <h3 class="chapter-title">第九章：古老遗迹</h3>
+                        <div class="chapter-meta">更新于：2023-10-18</div>
+                    </article>
+                    <article class="chapter-card">
+                        <h3 class="chapter-title">第八章：风雨欲来</h3>
+                        <div class="chapter-meta">更新于：2023-10-15</div>
+                    </article>
+                    <article class="chapter-card">
+                        <h3 class="chapter-title">第七章：家族大比</h3>
+                        <div class="chapter-meta">更新于：2023-10-12</div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download-area" class="download-section">
+            <div class="container">
+                <div class="download-box">
+                    <h2>获取《风月大陆》TXT全集</h2>
+                    <p>包含全本内容，格式标准，排版整洁，适合在Kindle、手机阅读器或电脑上阅读。</p>
+                    <div class="download-buttons">
+                        <a href="#" class="btn btn-white">下载 TXT (全本)</a>
+                        <a href="#" class="btn btn-white">下载 EPUB</a>
+                        <a href="#" class="btn btn-white">在线阅读</a>
+                    </div>
+                    <p style="margin-top: 20px; font-size: 12px; opacity: 0.7;">* 提示：支持鼠标右键另存为下载</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title" style="text-align: center; margin-bottom: 40px;">常见问题</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">如何下载《风月大陆》TXT文件？</div>
+                        <div class="faq-answer">点击页面顶部的“立即下载TXT”按钮，文件将自动保存到您的浏览器默认下载目录，或者选择“另存为”进行指定路径保存。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">TXT文件支持哪些阅读软件？</div>
+                        <div class="faq-answer">本站提供的TXT文件为通用格式，完全兼容微信读书、Kindle、手机自带阅读器、Calibre以及电脑上的各种TXT阅读软件。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">下载速度慢怎么办？</div>
+                        <div class="faq-answer">如果下载速度较慢，建议切换网络环境或尝试使用下载工具（如迅雷、IDM）进行多线程下载，以获得最佳体验。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">网站是否收费？</div>
+                        <div class="faq-answer">本站提供《风月大陆》TXT免费下载服务，内容仅供个人学习交流使用，请勿用于商业用途。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Books -->
+        <section class="section" style="background-color: white;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">同作者推荐</h2>
+                </div>
+                <div class="chapter-list">
+                    <article class="chapter-card">
+                        <h3 class="chapter-title">《星辰变》</h3>
+                        <div class="chapter-meta">作者：我吃西红柿</div>
+                    </article>
+                    <article class="chapter-card">
+                        <h3 class="chapter-title">《盘龙》</h3>
+                        <div class="chapter-meta">作者：我吃西红柿</div>
+                    </article>
+                    <article class="chapter-card">
+                        <h3 class="chapter-title">《吞噬星空》</h3>
+                        <div class="chapter-meta">作者：我吃西红柿</div>
+                    </article>
+                    <article class="chapter-card">
+                        <h3 class="chapter-title">《莽荒纪》</h3>
+                        <div class="chapter-meta">作者：我吃西红柿</div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="color: white; margin-bottom: 15px; display:inline-block;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                        <span>阅书阁</span>
+                    </a>
+                    <p style="font-size: 14px; line-height: 1.8;">专注于提供高质量网络小说TXT下载服务，致力于为读者打造最便捷的阅读体验。支持全本小说、连载小说的快速下载。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">排行榜</a></li>
+                        <li><a href="#">分类大全</a></li>
+                        <li><a href="#">热门推荐</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">下载教程</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系站长</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">QQ交流群</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 阅书阁. All Rights Reserved. 仅供学习交流使用，请支持正版图书。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
