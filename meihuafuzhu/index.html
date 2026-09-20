@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="梅花辅助网提供专业的游戏辅助工具下载、使用教程、版本更新及安全检测服务，致力于为玩家提供稳定、安全的游戏辅助解决方案。">
+    <meta name="keywords" content="梅花辅助网,游戏辅助,游戏外挂,辅助下载,游戏工具,梅花辅助">
+    <title>梅花辅助网-专业游戏辅助工具下载与安全检测平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-color);
+        }
+
+        .search-box {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            border: none;
+            padding: 8px 15px;
+            outline: none;
+            width: 200px;
+        }
+
+        .search-box button {
+            background-color: var(--accent-color);
+            border: none;
+            color: white;
+            padding: 0 15px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-box button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #4ca1af 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+            transition: var(--transition);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+        }
+
+        /* Game Grid */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .game-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-img {
+            height: 160px;
+            background-color: #eee;
+            position: relative;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .download-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .download-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: white;
+            padding: 60px 0;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 60px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .feature-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Update List */
+        .update-section {
+            margin-bottom: 60px;
+        }
+
+        .update-list {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .update-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            transition: var(--transition);
+        }
+
+        .update-item:last-child {
+            border-bottom: none;
+        }
+
+        .update-item:hover {
+            background-color: #f9f9f9;
+        }
+
+        .update-date {
+            background-color: #eef2f7;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            margin-right: 20px;
+            font-weight: bold;
+        }
+
+        .update-info {
+            flex: 1;
+        }
+
+        .update-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .update-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            .nav-menu {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+
+            .game-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .update-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .update-date {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">梅花<span>辅助</span>网</a>
+            <nav class="nav-menu">
+                <a href="#">首页</a>
+                <a href="#">热门推荐</a>
+                <a href="#">最新下载</a>
+                <a href="#">使用教程</a>
+                <a href="#">安全中心</a>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索游戏辅助...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>打造极致游戏体验</h1>
+            <p>梅花辅助网提供经过严格安全检测的专业游戏辅助工具，助您轻松上手，畅玩无忧。</p>
+            <a href="#games" class="cta-btn">立即下载热门辅助</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Features Section -->
+        <section class="features">
+            <div class="section-title">为什么选择梅花辅助网</div>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">🛡️</span>
+                    <h3 class="feature-title">安全无毒</h3>
+                    <p class="feature-text">所有辅助工具均经过人工与机器双重扫描，确保无病毒、无木马，保护您的账号安全。</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">⚡</span>
+                    <h3 class="feature-title">运行稳定</h3>
+                    <p class="feature-text">持续优化算法，兼容主流操作系统，提供低延迟、高帧率的流畅辅助体验。</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🚀</span>
+                    <h3 class="feature-title">更新及时</h3>
+                    <p class="feature-text">紧跟游戏版本更新，第一时间发布兼容补丁，确保辅助功能始终可用。</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">💬</span>
+                    <h3 class="feature-title">客服支持</h3>
+                    <p class="feature-text">提供详细的使用文档和在线客服解答，解决您在使用过程中的任何问题。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game List Section -->
+        <section id="games">
+            <h2 class="section-title">热门游戏辅助</h2>
+            <div class="game-grid">
+                <!-- Game Card 1 -->
+                <article class="game-card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/game1/400/250" alt="传奇世界辅助">
+                        <span class="card-badge">热榜</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">传奇世界辅助</h3>
+                        <p class="card-desc">专为传奇世界打造的多功能辅助工具，支持自动打怪、挂机升级，安全稳定。</p>
+                        <div class="card-meta">
+                            <span>版本: v3.2.1</span>
+                            <a href="#" class="download-btn">立即下载</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Game Card 2 -->
+                <article class="game-card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/game2/400/250" alt="DNF地下城辅助">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">DNF地下城辅助</h3>
+                        <p class="card-desc">智能识别副本机制，一键扫图，大幅提升刷图效率，安全防封号。</p>
+                        <div class="card-meta">
+                            <span>版本: v2.0.5</span>
+                            <a href="#" class="download-btn">立即下载</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Game Card 3 -->
+                <article class="game-card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/game3/400/250" alt="梦幻西游辅助">
+                        <span class="card-badge">推荐</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">梦幻西游辅助</h3>
+                        <p class="card-desc">全功能自动任务系统，支持日常、副本一键完成，解放双手。</p>
+                        <div class="card-meta">
+                            <span>版本: v4.1.8</span>
+                            <a href="#" class="download-btn">立即下载</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Game Card 4 -->
+                <article class="game-card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/game4/400/250" alt="王者荣耀辅助">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">王者荣耀辅助</h3>
+                        <p class="card-desc">针对MOBA游戏优化的视野辅助与技能预判工具，提升竞技水平。</p>
+                        <div class="card-meta">
+                            <span>版本: v1.5.2</span>
+                            <a href="#" class="download-btn">立即下载</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Updates Section -->
+        <section class="update-section">
+            <h2 class="section-title">最新更新动态</h2>
+            <div class="update-list">
+                <div class="update-item">
+                    <div class="update-date">2023-10-24</div>
+                    <div class="update-info">
+                        <div class="update-title">传奇世界辅助 v3.2.1 更新日志</div>
+                        <div class="update-desc">修复了部分地图怪物刷新延迟问题；优化了自动拾取功能；增强了账号安全保护机制。</div>
+                    </div>
+                </div>
+                <div class="update-item">
+                    <div class="update-date">2023-10-22</div>
+                    <div class="update-info">
+                        <div class="update-title">DNF地下城辅助 v2.0.5 更新日志</div>
+                        <div class="update-desc">新增卢克raid一键通关功能；修复了巴卡尔团本偶尔卡顿的BUG；调整了部分技能冷却时间显示。</div>
+                    </div>
+                </div>
+                <div class="update-item">
+                    <div class="update-date">2023-10-20</div>
+                    <div class="update-info">
+                        <div class="update-title">梦幻西游辅助 v4.1.8 更新日志</div>
+                        <div class="update-desc">支持最新的副本剧情流程；优化了自动挂机时的资源采集逻辑；修复了偶尔掉线重连卡死的问题。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section class="features" style="margin-bottom: 0;">
+            <div class="section-title">安全使用指南</div>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3 class="feature-title">1. 环境准备</h3>
+                    <p class="feature-text">关闭杀毒软件实时监控，以免误报拦截辅助程序运行。建议在纯净的系统环境下使用。</p>
+                </div>
+                <div class="feature-item">
+                    <h3 class="feature-title">2. 注册授权</h3>
+                    <p class="feature-text">使用官方提供的注册码进行激活，激活后可享受永久免费更新及技术支持服务。</p>
+                </div>
+                <div class="feature-item">
+                    <h3 class="feature-title">3. 防封号建议</h3>
+                    <p class="feature-text">合理设置操作频率，避免在短时间内进行大量重复操作。结合正常游戏行为使用辅助效果更佳。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>关于梅花辅助网</h3>
+                    <p style="color: #bdc3c7; font-size: 0.9rem; line-height: 1.8;">
+                        梅花辅助网致力于为玩家提供最优质的辅助工具，所有软件均经过严格测试，确保安全稳定。我们尊重游戏规则，倡导健康游戏。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#">网站地图</a></li>
+                        <li><a href="#">免责声明</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>热门游戏</h3>
+                    <ul>
+                        <li><a href="#">传奇世界</a></li>
+                        <li><a href="#">DNF地下城</a></li>
+                        <li><a href="#">梦幻西游</a></li>
+                        <li><a href="#">王者荣耀</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 梅花辅助网 版权所有 | 本站所有资源仅供学习交流，请勿用于商业用途</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
