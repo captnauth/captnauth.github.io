@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="蝌蚪窝 Pronon 是一个专注于成人向内容展示与深度阅读的互动社区平台，提供最新资讯、作品解析及用户交流空间。">
+    <meta name="keywords" content="蝌蚪窝 pronon, 成人内容, 在线阅读, 互动社区, 资讯平台">
+    <title>蝌蚪窝 pronon-成人向内容深度阅读与互动社区</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-color: #ff4757;
+            --accent-hover: #ff6b81;
+            --border-color: #333;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-main);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-main);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(255, 71, 87, 0.05) 0%, rgba(18, 18, 18, 0) 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .feature-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Content Section */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-more {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: normal;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: #444;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background-color: #2a2a2a;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 4px 8px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            backdrop-filter: blur(4px);
+        }
+
+        .card-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .card-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border-top: 1px solid #333;
+            padding-top: 16px;
+        }
+
+        .tag {
+            background-color: #333;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--card-bg);
+            padding: 40px 0;
+            margin-bottom: 60px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item:not(.active) .faq-question::after {
+            content: '+';
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            padding: 40px 0 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 16px;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            color: #555;
+            font-size: 0.85rem;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .card-image {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">蝌蚪窝<span>Pronon</span></a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">热门推荐</a>
+                <a href="#">最新更新</a>
+                <a href="#">分类浏览</a>
+                <a href="#">社区讨论</a>
+            </nav>
+            <div class="user-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">注册</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>探索无限内容，发现独特视角</h1>
+                <p>蝌蚪窝 Pronon 是您专属的深度阅读与互动社区。我们致力于提供丰富多样的内容体验，汇聚优质资源，打造安全舒适的浏览环境。</p>
+                <div style="display: flex; justify-content: center; gap: 16px;">
+                    <button class="btn btn-primary" style="padding: 12px 32px; font-size: 1rem;">开始探索</button>
+                    <button class="btn btn-outline" style="padding: 12px 32px; font-size: 1rem;">了解我们</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Features -->
+            <section class="features">
+                <article class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h3 class="feature-title">极速加载</h3>
+                    <p class="feature-desc">优化的服务器架构与CDN节点，确保在任何网络环境下都能流畅访问。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h3 class="feature-title">安全隐私</h3>
+                    <p class="feature-desc">严格的数据保护措施，尊重用户隐私，提供无痕浏览与匿名选项。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon">📚</span>
+                    <h3 class="feature-title">海量资源</h3>
+                    <p class="feature-desc">持续更新的分类库，涵盖多种题材，满足不同读者的阅读偏好。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon">💬</span>
+                    <h3 class="feature-title">互动社区</h3>
+                    <p class="feature-desc">活跃的用户社区，支持评论、点赞与分享，与志同道合的人交流。</p>
+                </article>
+            </section>
+
+            <!-- Latest Updates -->
+            <section>
+                <div class="section-title">
+                    <h2>最新内容</h2>
+                    <a href="#" class="section-more">查看全部 &rarr;</a>
+                </div>
+                <div class="content-grid">
+                    <!-- Card 1 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <span class="card-badge">热门</span>
+                            <img src="https://picsum.photos/seed/scene1/400/300" alt="内容封面">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">都市夜行录：暗夜中的秘密</h3>
+                            <p class="card-excerpt">在这个繁华都市的阴影下，隐藏着不为人知的故事。主角在一次偶然的机会中，卷入了一场关于信任与背叛的复杂漩涡...</p>
+                            <div class="card-meta">
+                                <span class="tag">剧情</span>
+                                <span>2小时前更新</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <span class="card-badge">新上</span>
+                            <img src="https://picsum.photos/seed/scene2/400/300" alt="内容封面">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">异界漫游指南</h3>
+                            <p class="card-excerpt">穿越到异世界后的生存挑战。如何在这个充满魔法与怪物的世界里找到属于自己的位置？一段奇妙的冒险即将开始。</p>
+                            <div class="card-meta">
+                                <span class="tag">奇幻</span>
+                                <span>5小时前更新</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <span class="card-badge">精选</span>
+                            <img src="https://picsum.photos/seed/scene3/400/300" alt="内容封面">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">深夜食堂：味觉的慰藉</h3>
+                            <p class="card-excerpt">不仅仅是食物，更是心灵的交流。每一道菜品背后都有一个温暖的故事，适合在安静的夜晚细细品味。</p>
+                            <div class="card-meta">
+                                <span class="tag">生活</span>
+                                <span>昨天更新</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <span class="card-badge">连载</span>
+                            <img src="https://picsum.photos/seed/scene4/400/300" alt="内容封面">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">未来科技：赛博纪元</h3>
+                            <p class="card-excerpt">当人工智能开始拥有情感，人类社会的边界在哪里？一部关于科技与人性的硬核科幻作品。</p>
+                            <div class="card-meta">
+                                <span class="tag">科幻</span>
+                                <span>2天前更新</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <div class="container faq-container">
+                    <div class="section-title">
+                        <h2>常见问题</h2>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何在蝌蚪窝 Pronon 注册账号？</div>
+                        <div class="faq-answer">点击页面右上角的“注册”按钮，填写有效的电子邮箱和设置密码即可完成账户创建。支持第三方快捷登录。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">平台的内容更新频率是怎样的？</div>
+                        <div class="faq-answer">我们拥有专业的编辑团队，每日都会筛选并发布优质的新内容，确保用户能第一时间看到最新资讯。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">会员服务有什么区别？</div>
+                        <div class="faq-answer">注册用户可以浏览基础内容，而VIP会员享有高清画质、无广告体验、专属下载权限及优先阅读权等特权。</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">蝌蚪窝<span>Pronon</span></a>
+                    <p>专注于提供高品质的在线内容体验，致力于构建一个开放、包容、安全的数字社区。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">平台介绍</a></li>
+                        <li><a href="#">加入团队</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">使用指南</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">官方微博</a></li>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">用户社群</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 蝌蚪窝 Pronon. All Rights Reserved. 本站内容仅供18+成人娱乐参考。
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
